@@ -1,5 +1,9 @@
 import random
 
+#this dictionary has 3 elements,
+#keys are names of individuals and values are their corresponding phone numbers
+
+phonebook = {} #creates an empty dictionary 
 phonebook = {'Chris':'555−1111',
              'Katie':'555−2222',
              'Joanne':'555−3333'}
@@ -10,8 +14,13 @@ print()
 print('*****  start section 1 - print dictionary ********')
 print()
 
+"""
+#third method
+mydictionary = dict(m=8, n=9)
+print(mydictionary)
 
-
+print(len(phonebook))
+print(type(phonebook)) #allows you to know what type of variable you are working with
 
 
 print()
@@ -19,17 +28,19 @@ print('*****  end section 1 ********')
 print()
 
 
-'''
-
-
+"""
 print()
 print('*****  start section 2 - search dictionary ********')
 print()
 
+name = 'Chris' #python is cases sensitive so won't work if you do chris
+#phone = phonebook["Chris"]
+#print(phone)
 
-
-
-
+if name in phonebook:
+    print(phonebook[name])
+else:
+    print(f"{name} is not in the phonebook")
 
 
 print()
@@ -40,14 +51,16 @@ print()
 
 
 
-
-
 print()
 print('*****  start section 3 - edit/append dictionary ********')
 print()
 
+print (phonebook)
 
+phonebook['Chris'] = '555-0123'
+phonebook['Joe'] = "555-4444"
 
+print(phonebook)
 
 
 print()
@@ -56,13 +69,15 @@ print()
 
 
 
-
-
-
 print()
 print('*****  start section 4 - delete/remove from dictionary ********')
 print()
 
+print(phonebook)
+
+del phonebook['Chris']
+
+print(phonebook)
 
 
 
@@ -79,16 +94,20 @@ print()
 print('*****  start section 5 - iterate through keys, values, items ********')
 print()
 
+for key in phonebook:
+    print(f"the key is {key} and the value is {phonebook[key]}") #calls a dictionary and gives it a key
 
+for value in phonebook.values():
+    print(value)
 
+for key,value in phonebook.items():
+    print(f"the key is {key} and the value is {value}")
 
-
-
+for ph_tuple in phonebook.items():
+    print(ph_tuple)
 print()
 print('*****  end section 5 ********')
 print()
-
-
 
 
 
@@ -96,9 +115,11 @@ print()
 print('*****  start section 6 - using get and clear ********')
 print()
 
+phone = phonebook.get('Chris','999')
+print(phone)
 
-
-
+phonebook.clear()
+print(phonebook) #will produce and empty dictionary
 
 
 print()
@@ -106,12 +127,14 @@ print('*****  end section 6 ********')
 print()
 
 
-
 print()
 print('*****  start section 7 - using pop method ********')
 print()
 
-
+#removes key value pari out of dictionary and allow you to get the value and save it into a variable
+remove = phonebook.pop('Chris','not found')
+print(remove)
+print(phonebook)
 
 
 
@@ -126,8 +149,11 @@ print()
 print('*****  start section 8 - using popitem ********')
 print()
 
+#pick a random key value pair amd pop it out of the dictionary for you
+a = phonebook.popitem(0)
 
-
+print(a)
+print(phonebook)
 
 
 
@@ -141,17 +167,22 @@ print()
 print('*****  start section 9 - using random and converting to list ********')
 print()
 
+phonebook_list = list(phonebook)
+print(phonebook_list) #gives a list of the keys chris katie joanne
+ramdon_key = random.choice(phonebook_list)
+print(random_key)
+print(phonebook[random_key])
 
 
-
+print(phonebook[random_key](random.choice(phonebook_list)))
 
 print()
 print('*****  end section 9 ********')
 print()
 
 
-'''
 
+"""
 
 
 
