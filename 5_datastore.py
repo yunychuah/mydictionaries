@@ -18,8 +18,8 @@ room-number,use,sq-ft,price
 
 
 
-datastore = { "medical":[
-      { "room-number": 100,
+datastore = { "medical":[ #this is a list b/c starts off w square brackets
+      { "room-number": 100, #then after its 5 dictionaries so a list of 5 dictionaries
         "use": "reception",
         "sq-ft": 50,
         "price": 75
@@ -47,3 +47,20 @@ datastore = { "medical":[
 
       ]
 }
+outfile = open('retail_space.csv', 'w')
+outfile.write('room-number,use,sq-ft,office\n')
+
+list1= datastore['medical']
+
+for dict in list1:
+  rn = dict['room-number']
+  use = dict['use']
+  sq = dict['sq-ft']
+  price = dict['price']
+
+  outfile.write(str(rn) + ',' + use + ',' + str(sq) + ',' + str(price) + '\n')
+
+outfile.close()
+
+
+
